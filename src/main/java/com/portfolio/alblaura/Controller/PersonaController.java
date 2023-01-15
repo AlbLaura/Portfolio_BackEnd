@@ -32,7 +32,7 @@ public class PersonaController {
     
     @GetMapping ("/personas/traer/perfil")
     public Persona getPerfil(){
-     return interPersona.findPersona(1l);
+     return interPersona.findPersona(1L);
     }
     
     @PostMapping ("/personas/crear")
