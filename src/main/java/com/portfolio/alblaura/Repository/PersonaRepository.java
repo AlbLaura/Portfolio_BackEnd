@@ -4,11 +4,9 @@ import com.portfolio.alblaura.Model.Persona;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-/**
- *
- * @author Laura
- */
+import java.util.List;
+
 @Repository
 public interface PersonaRepository extends JpaRepository<Persona, Long> {
-        
+
 }
