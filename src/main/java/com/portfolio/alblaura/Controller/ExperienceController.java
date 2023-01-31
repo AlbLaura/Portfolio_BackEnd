@@ -30,11 +30,11 @@ public class ExperienceController {
 
     @PutMapping("/experience/put/{id}")
     public Experience editExperience( @PathVariable Long id,
-                                      @PathVariable ("titulo") String nuevoTitulo,
-                                      @PathVariable ("urlLogo") String nuevoUrlLogo,
-                                      @PathVariable ("descripcion") String nuevoDescripcion,
-                                      @PathVariable ("fechaInicio") String nuevoFechaInicio,
-                                      @PathVariable ("fechaFinal") String nuevoFechaFinal) {
+                                      @RequestParam ("titulo") String nuevoTitulo,
+                                      @RequestParam ("urlLogo") String nuevoUrlLogo,
+                                      @RequestParam ("descripcion") String nuevoDescripcion,
+                                      @RequestParam ("fechaInicio") String nuevoFechaInicio,
+                                      @RequestParam ("fechaFinal") String nuevoFechaFinal) {
         Experience exp = interExp.findExperience(id);
         exp.setTitulo(nuevoTitulo);
         exp.setDescripcion(nuevoDescripcion);
