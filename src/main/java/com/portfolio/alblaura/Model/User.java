@@ -13,9 +13,9 @@ import lombok.Setter;
  */
 @Getter @Setter
 @Entity
-public class Persona {
+public class User {
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String nombre;
     private String apellido;
