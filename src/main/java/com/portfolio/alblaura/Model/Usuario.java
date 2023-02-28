@@ -7,16 +7,18 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+/**
+ *
+ * @author Laura
+ */
+@Getter @Setter
 @Entity
-public class Education {
+public class Usuario {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
-    private String career;
-    private String fechaInicio;
-    private String fechaFinal;
-    private String resume;
-    private String tituloEgreso;
+    private String nombre;
+    private String email;
+    private String about;
+    private String urlImagen;
 }

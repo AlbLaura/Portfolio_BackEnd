@@ -1,23 +1,23 @@
 package com.portfolio.alblaura.Service;
 
-import com.portfolio.alblaura.Model.User;
+import com.portfolio.alblaura.Model.Usuario;
 import java.util.List;
 
 /**
  *
  * @author Laura
  */
-public interface IUserService {
+public interface IUsuarioService {
 
     //metodo para traer todas las personas
-    List<User> getUsers();
+    List<Usuario> getUsers();
 
     //metodo para dar de alta una persona
-    void saveUser(User user);
+    void saveUser(Usuario user);
 
     //metodo para borrar una persona
     void deleteUser(Long id);
 
     //metodo para encontrar una persona
-    User findUser(Long id);
+    Usuario findUser(Long id);
 }

@@ -1,7 +1,7 @@
 package com.portfolio.alblaura.Controller;
 
-import com.portfolio.alblaura.Model.User;
-import com.portfolio.alblaura.Service.IUserService;
+import com.portfolio.alblaura.Model.Usuario;
+import com.portfolio.alblaura.Service.IUsuarioService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,23 +20,23 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-public class UserController {
+public class UsuarioController {
 
     @Autowired
-    private IUserService interUser;
+    private IUsuarioService interUser;
 
     @GetMapping ("/users/get")
-    public List<User> getUsers(){
+    public List<Usuario> getUsers(){
         return interUser.getUsers();
     }
 
     @GetMapping ("/users/traer/perfil")
-    public User getPerfil(){
+    public Usuario getPerfil(){
         return interUser.findUser(1L);
     }
 
     @PostMapping ("/users/post")
-    public String createUser(@RequestBody User perso){
+    public String createUser(@RequestBody Usuario perso){
         interUser.saveUser(perso);
         //devuelve un string avisando si se creo correctamente
         return "La persona fue creada correctamente";
@@ -50,17 +50,19 @@ public class UserController {
     }
 
     @PutMapping ("/users/put/{id}")
-    public User editUser (  @PathVariable Long id,
-                            @RequestParam ("nombre") String nuevoNombre,
-                            @RequestParam ("apellido") String nuevoApellido,
-                            @RequestParam ("urlImagen") String nuevaUrlImagen){
+    public Usuario editUser (@PathVariable Long id,
+                             @RequestParam ("nombre") String nuevoNombre,
+                             @RequestParam ("email") String nuevoEmail,
+                             @RequestParam ("about") String nuevoAbout,
+                             @RequestParam ("urlImagen") String nuevaUrlImagen){
         //busco la persona en cuestion
-        User user = interUser.findUser(id);
+        Usuario user = interUser.findUser(id);
 
         //esto tambien puede ir en service
         //para desacoplar mejor aun el codigo en un nuevo metodo
         user.setNombre(nuevoNombre);
-        user.setApellido(nuevoApellido);
+        user.setEmail(nuevoEmail);
+        user.setAbout(nuevoAbout);
         user.setUrlImagen(nuevaUrlImagen);
 
         interUser.saveUser(user);

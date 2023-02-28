@@ -2,8 +2,8 @@ package com.portfolio.alblaura.Service;
 
 import java.util.List;
 
-import com.portfolio.alblaura.Model.User;
-import com.portfolio.alblaura.Repository.UserRepository;
+import com.portfolio.alblaura.Model.Usuario;
+import com.portfolio.alblaura.Repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,18 +12,18 @@ import org.springframework.stereotype.Service;
  * @author Laura
  */
 @Service
-public class UserService implements IUserService {
+public class UsuarioService implements IUsuarioService {
 
     @Autowired
-    private UserRepository userRepository;
+    private UsuarioRepository userRepository;
 
     @Override
-    public List<User> getUsers() {
+    public List<Usuario> getUsers() {
         return userRepository.findAll();
     }
 
     @Override
-    public void saveUser(User user){
+    public void saveUser(Usuario user){
         userRepository.save(user);
     }
 
@@ -33,7 +33,7 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public User findUser(Long id){
+    public Usuario findUser(Long id){
         return userRepository.findById(id).orElse(null);
     }
 

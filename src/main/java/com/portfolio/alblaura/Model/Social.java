@@ -7,16 +7,12 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Getter @Setter
 @Entity
-public class Education {
+public class Social {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String career;
-    private String fechaInicio;
-    private String fechaFinal;
-    private String resume;
-    private String tituloEgreso;
+    private String nombre;
+    private String url;
 }
