@@ -16,4 +16,14 @@ public class Skills {
     private String nombre;
     private String porcentaje;
     private String urlLogo;
+
+    public Skills() {
+    }
+
+    public Skills(Long id, String nombre, String porcentaje, String urlLogo) {
+        this.id = id;
+        this.nombre = nombre;
+        this.porcentaje = porcentaje;
+        this.urlLogo = urlLogo;
+    }
 }

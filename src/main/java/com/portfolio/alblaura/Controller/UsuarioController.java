@@ -52,7 +52,8 @@ public class UsuarioController {
     @PutMapping ("/users/put/{id}")
     public Usuario editUser (@PathVariable Long id,
                              @RequestParam ("nombre") String nuevoNombre,
-                             @RequestParam ("email") String nuevoEmail,
+                             @RequestParam ("apellido") String nuevoApellido,
+                             @RequestParam ("titulo") String nuevoTitulo,
                              @RequestParam ("about") String nuevoAbout,
                              @RequestParam ("urlImagen") String nuevaUrlImagen){
         //busco la persona en cuestion
@@ -61,7 +62,8 @@ public class UsuarioController {
         //esto tambien puede ir en service
         //para desacoplar mejor aun el codigo en un nuevo metodo
         user.setNombre(nuevoNombre);
-        user.setEmail(nuevoEmail);
+        user.setApellido(nuevoApellido);
+        user.setTitulo(nuevoTitulo);
         user.setAbout(nuevoAbout);
         user.setUrlImagen(nuevaUrlImagen);
 

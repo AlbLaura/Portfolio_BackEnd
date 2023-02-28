@@ -19,4 +19,16 @@ public class Education {
     private String fechaFinal;
     private String resume;
     private String tituloEgreso;
+
+    public Education() {
+    }
+
+    public Education(Long id, String career, String fechaInicio, String fechaFinal, String resume, String tituloEgreso) {
+        this.id = id;
+        this.career = career;
+        this.fechaInicio = fechaInicio;
+        this.fechaFinal = fechaFinal;
+        this.resume = resume;
+        this.tituloEgreso = tituloEgreso;
+    }
 }

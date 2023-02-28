@@ -15,4 +15,13 @@ public class Social {
     private Long id;
     private String nombre;
     private String url;
+
+    public Social() {
+    }
+
+    public Social(Long id, String nombre, String url) {
+        this.id = id;
+        this.nombre = nombre;
+        this.url = url;
+    }
 }

@@ -19,4 +19,14 @@ public class Contact {
     private String asunto;
     private String emailReceptor;
 
+    public Contact() {
+    }
+
+    public Contact(Long id, String nombreEmisor, String mensaje, String asunto, String emailReceptor) {
+        this.id = id;
+        this.nombreEmisor = nombreEmisor;
+        this.mensaje = mensaje;
+        this.asunto = asunto;
+        this.emailReceptor = emailReceptor;
+    }
 }

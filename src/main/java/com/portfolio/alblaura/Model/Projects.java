@@ -17,4 +17,14 @@ public class Projects {
     private String titulo;
     private String url_img;
     private String resume; //optional
+
+    public Projects() {
+    }
+
+    public Projects(Long id, String titulo, String url_img, String resume) {
+        this.id = id;
+        this.titulo = titulo;
+        this.url_img = url_img;
+        this.resume = resume;
+    }
 }

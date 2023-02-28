@@ -18,4 +18,16 @@ public class Experience {
     private String fechaInicio;
     private String fechaFinal;
     private String urlLogo;
+
+    public Experience() {
+    }
+
+    public Experience(Long id, String titulo, String descripcion, String fechaInicio, String fechaFinal, String urlLogo) {
+        this.id = id;
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.fechaInicio = fechaInicio;
+        this.fechaFinal = fechaFinal;
+        this.urlLogo = urlLogo;
+    }
 }
