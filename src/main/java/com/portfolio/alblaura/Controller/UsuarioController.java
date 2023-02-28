@@ -1,7 +1,7 @@
 package com.portfolio.alblaura.Controller;
 
 import com.portfolio.alblaura.Model.Usuario;
-import com.portfolio.alblaura.Service.IUsuarioService;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;

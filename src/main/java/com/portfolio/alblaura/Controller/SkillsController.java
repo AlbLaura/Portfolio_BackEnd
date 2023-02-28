@@ -1,7 +1,6 @@
 package com.portfolio.alblaura.Controller;
 
 import com.portfolio.alblaura.Model.Skills;
-import com.portfolio.alblaura.Service.ISkillsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Projects {
+public class Project {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
@@ -18,10 +18,10 @@ public class Projects {
     private String url_img;
     private String resume; //optional
 
-    public Projects() {
+    public Project() {
     }
 
-    public Projects(Long id, String titulo, String url_img, String resume) {
+    public Project(Long id, String titulo, String url_img, String resume) {
         this.id = id;
         this.titulo = titulo;
         this.url_img = url_img;

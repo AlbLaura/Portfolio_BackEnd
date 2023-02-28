@@ -6,35 +6,37 @@ import com.portfolio.alblaura.Model.Usuario;
 import com.portfolio.alblaura.Repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author Laura
  */
 @Service
-public class UsuarioService implements IUsuarioService {
+@Transactional
+public class UsuarioService {
+
+    private final UsuarioRepository usuarioRepo;
 
     @Autowired
-    private UsuarioRepository userRepository;
+    public UsuarioService(UsuarioRepository usuarioRepo) {
+        this.usuarioRepo = usuarioRepo;
+    }
 
-    @Override
     public List<Usuario> getUsers() {
-        return userRepository.findAll();
+        return usuarioRepo.findAll();
     }
 
-    @Override
     public void saveUser(Usuario user){
-        userRepository.save(user);
+        usuarioRepo.save(user);
     }
 
-    @Override
     public void deleteUser(Long id) {
-        userRepository.deleteById(id);
+        usuarioRepo.deleteById(id);
     }
 
-    @Override
     public Usuario findUser(Long id){
-        return userRepository.findById(id).orElse(null);
+        return usuarioRepo.findById(id).orElse(null);
     }
 
 }
