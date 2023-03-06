@@ -1,34 +1,32 @@
 package com.portfolio.alblaura.Service;
 
+import com.portfolio.alblaura.Exception.UserNotFoundException;
 import com.portfolio.alblaura.Model.Experience;
 import com.portfolio.alblaura.Repository.ExperienceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Service
-public class ExperienceService implements IExperienceService {
+@Transactional
+public class ExperienceService {
+    private final ExperienceRepository experienceRepo;
 
     @Autowired
-    private ExperienceRepository expRepo;
-
-    @Override
+    public ExperienceService(ExperienceRepository experienceRepo) {
+        this.experienceRepo = experienceRepo;
+    }
     public List<Experience> getExperience() {
-        return expRepo.findAll();
+        return experienceRepo.findAll();
     }
-
-    @Override
-    public void saveExperience(Experience exp) {
-        expRepo.save(exp);
+    public Experience saveExperience(Experience experience) {
+        return experienceRepo.save(experience);
     }
-
-    @Override
     public void deleteExperience(Long id) {
-        expRepo.deleteById(id);
+        experienceRepo.deleteById(id);
     }
-
-    @Override
     public Experience findExperience(Long id) {
-        return expRepo.findById(id).orElse(null);
+        return experienceRepo.findById(id).orElseThrow(() -> new UserNotFoundException("Experiencia no encontrada"));
     }
 }

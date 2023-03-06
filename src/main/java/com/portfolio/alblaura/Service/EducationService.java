@@ -1,5 +1,6 @@
 package com.portfolio.alblaura.Service;
 
+import com.portfolio.alblaura.Exception.UserNotFoundException;
 import com.portfolio.alblaura.Model.Education;
 import com.portfolio.alblaura.Repository.EducationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,6 @@ public class EducationService {
         educationRepo.deleteById(id);
     }
     public Education findEducation(Long id) {
-        return educationRepo.findById(id).orElse(null);
+        return educationRepo.findById(id).orElseThrow(() -> new UserNotFoundException("Educacion no encontrada"));
     }
 }

@@ -1,4 +1,4 @@
 package com.portfolio.alblaura.Controller;
 
-public class ExperienceController {
+public class EducationController {
 }

@@ -2,16 +2,12 @@ package com.portfolio.alblaura.Service;
 
 import java.util.List;
 
+import com.portfolio.alblaura.Exception.UserNotFoundException;
 import com.portfolio.alblaura.Model.Usuario;
 import com.portfolio.alblaura.Repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-/**
- *
- * @author Laura
- */
 @Service
 @Transactional
 public class UsuarioService {
@@ -22,21 +18,17 @@ public class UsuarioService {
     public UsuarioService(UsuarioRepository usuarioRepo) {
         this.usuarioRepo = usuarioRepo;
     }
-
     public List<Usuario> getUsers() {
         return usuarioRepo.findAll();
     }
-
-    public void saveUser(Usuario user){
-        usuarioRepo.save(user);
+    public Usuario saveUser(Usuario user){
+        return usuarioRepo.save(user);
     }
-
     public void deleteUser(Long id) {
         usuarioRepo.deleteById(id);
     }
-
     public Usuario findUser(Long id){
-        return usuarioRepo.findById(id).orElse(null);
+        return usuarioRepo.findById(id).orElseThrow(() -> new UserNotFoundException("usuario no encontrado"));
     }
 
 }

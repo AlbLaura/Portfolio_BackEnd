@@ -1,35 +1,34 @@
 package com.portfolio.alblaura.Service;
 
+import com.portfolio.alblaura.Exception.UserNotFoundException;
 import com.portfolio.alblaura.Model.Skills;
 import com.portfolio.alblaura.Repository.SkillsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
-public class SkillsService implements ISkillsService{
+@Transactional
+public class SkillsService {
+    private final SkillsRepository skillsRepo;
 
     @Autowired
-    private SkillsRepository skillsRepo;
-
-    @Override
-    public List<Skills> getSkills() {
+    public SkillsService(SkillsRepository skillsRepo) {
+        this.skillsRepo = skillsRepo;
+    }
+    public List<Skills> getSkills(){
         return skillsRepo.findAll();
     }
+    public Skills saveSkills(Skills skills) {
+        return skillsRepo.save(skills);
 
-    @Override
-    public void saveSkills(Skills skills) {
-        skillsRepo.save(skills);
     }
-
-    @Override
     public void deleteSkills(Long id) {
         skillsRepo.deleteById(id);
     }
-
-    @Override
     public Skills findSkills(Long id) {
-        return skillsRepo.findById(id).orElse(null);
+        return skillsRepo.findById(id).orElseThrow(() -> new UserNotFoundException("Skills no encontrada"));
     }
 }
