@@ -22,11 +22,8 @@ public class ExperienceService {
     }
     public Experience saveExperience(Experience experience) {
         return experienceRepo.save(experience);
-    }
+    } //add & edit
     public void deleteExperience(Long id) {
         experienceRepo.deleteById(id);
-    }
-    public Experience findExperience(Long id) {
-        return experienceRepo.findById(id).orElseThrow(() -> new UserNotFoundException("Experiencia no encontrada"));
     }
 }

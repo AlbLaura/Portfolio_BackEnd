@@ -23,11 +23,8 @@ public class ProjectService {
     }
     public Project saveProject(Project project) {
         return projectRepo.save(project);
-    }
+    } //add & edit
     public void deleteProject(Long id) {
         projectRepo.deleteById(id);
-    }
-    public Project findProject(Long id) {
-        return projectRepo.findById(id).orElseThrow(() -> new UserNotFoundException("Projecto no encontrado"));
     }
 }

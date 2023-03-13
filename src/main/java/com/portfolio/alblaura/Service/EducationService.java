@@ -23,11 +23,8 @@ public class EducationService {
     }
     public Education saveEducation(Education edu) {
         return educationRepo.save(edu);
-    }
+    } //add & edit
     public void deleteEducation(Long id) {
         educationRepo.deleteById(id);
-    }
-    public Education findEducation(Long id) {
-        return educationRepo.findById(id).orElseThrow(() -> new UserNotFoundException("Educacion no encontrada"));
     }
 }

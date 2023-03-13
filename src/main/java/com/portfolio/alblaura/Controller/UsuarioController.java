@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.text.html.parser.Entity;
+
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
@@ -16,7 +18,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/id/{id}")
-    public ResponseEntity<Usuario> getUsuario(@PathVariable("id")Long id) {
+    public ResponseEntity<Usuario> getUsuario(@PathVariable("id") Long id) {
         Usuario usuario = usuarioService.findUser(id);
         return new ResponseEntity<>(usuario, HttpStatus.OK);
     }

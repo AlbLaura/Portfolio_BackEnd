@@ -14,21 +14,23 @@ public class Education {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
-    private String career;
+    private String place;
     private String fechaInicio;
     private String fechaFinal;
     private String resume;
     private String tituloEgreso;
+    private String logoUrl;
 
     public Education() {
     }
 
-    public Education(Long id, String career, String fechaInicio, String fechaFinal, String resume, String tituloEgreso) {
+    public Education(Long id, String place, String fechaInicio, String fechaFinal, String resume, String tituloEgreso, String logoUrl) {
         this.id = id;
-        this.career = career;
+        this.place = place;
         this.fechaInicio = fechaInicio;
         this.fechaFinal = fechaFinal;
         this.resume = resume;
         this.tituloEgreso = tituloEgreso;
+        this.logoUrl = logoUrl;
     }
 }

@@ -23,12 +23,8 @@ public class SkillsService {
     }
     public Skills saveSkills(Skills skills) {
         return skillsRepo.save(skills);
-
-    }
+    } //add & edit
     public void deleteSkills(Long id) {
         skillsRepo.deleteById(id);
-    }
-    public Skills findSkills(Long id) {
-        return skillsRepo.findById(id).orElseThrow(() -> new UserNotFoundException("Skills no encontrada"));
     }
 }

@@ -23,11 +23,8 @@ public class ContactService {
     }
     public Contact saveContact(Contact contact) {
         return contactRepo.save(contact);
-    }
+    } //add & edit
     public void deleteContact(Long id) {
         contactRepo.deleteById(id);
-    }
-    public Contact findContact(Long id) {
-        return contactRepo.findById(id).orElseThrow(() -> new UserNotFoundException("Contacto no encontrado"));
     }
 }

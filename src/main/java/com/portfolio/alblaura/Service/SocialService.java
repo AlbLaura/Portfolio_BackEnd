@@ -23,11 +23,8 @@ public class SocialService {
     }
     public Social saveSocial(Social social) {
         return socialRepo.save(social);
-    }
+    } //add & edit
     public void deleteSocial(Long id) {
         socialRepo.deleteById(id);
-    }
-    public Social findSocial(Long id) {
-        return socialRepo.findById(id).orElseThrow(() -> new UserNotFoundException("Social no encontrado"));
     }
 }
